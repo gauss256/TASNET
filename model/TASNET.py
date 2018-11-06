@@ -34,7 +34,7 @@ class TASmodel(object):
         # create job_env
         self.job_dir = config.job_dir
         create_folders(self.job_dir)
-        self.best_snr_dir = os.path.join(config.job_dir, 'bset_snr')
+        self.best_snr_dir = os.path.join(config.job_dir, 'best_snr')
         create_folders(self.best_snr_dir)
         self.saver = tf.train.Saver(tf.global_variables(), max_to_keep=5)
         self.best_snr_saver = tf.train.Saver(tf.global_variables(), max_to_keep=1)
@@ -302,6 +302,8 @@ class TASmodel(object):
                                  num_sent, total_snr / batch_counter, total_snr,
                                  batch_counter, num_sent / (time.time() - start_time)))
         duration = time.time() - start_time
+        if batch_counter == 0:
+            return 0
         avg_snr = total_snr / batch_counter
         dev_summary = create_valid_summary(avg_snr)
         i_global = self.session.run(self.global_step)

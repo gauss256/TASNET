@@ -21,6 +21,7 @@ if __name__ == "__main__":
     os.environ['CUDA_VISIBLE_DEVICES'] = ','.join(map(str, gpu_list))
     set_log(cfg.job_dir)
     shutil.copy('config.py', cfg.job_dir)
+    # TODO: copy list/*.lst to job_dir
     tf.set_random_seed(cfg.seed)
     train_list = (cfg.train_spkr1_list, cfg.train_spkr2_list, cfg.train_mixsnr_list)
     dev_list = (cfg.dev_spkr1_list, cfg.dev_spkr2_list, cfg.dev_mixsnr_list)

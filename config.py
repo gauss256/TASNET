@@ -17,20 +17,17 @@ shorter_sent_len = 100
 longer_sent_len = 800
 
 # data_path
-train_spkr1_list = "/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_tr_spkr1.lst"
-train_spkr2_list = "/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_tr_spkr2.lst"
-train_mixsnr_list = "/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_tr_mixsnr.lst"
-dev_spkr1_list = "/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_cv_spkr1.lst"
-dev_spkr2_list = "/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_cv_spkr2.lst"
-dev_mixsnr_list = "/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_cv_mixsnr.lst"
-debug_spkr1_list = "/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_debug_spkr1.lst"
-debug_spkr2_list = "/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_debug_spkr2.lst"
-debug_mixsnr_list = "/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_debug_mixsnr.lst"
+train_spkr1_list = "/data3/src/TASNET/list/dc_tr_spkr1.lst"
+train_spkr2_list = "/data3/src/TASNET/list/dc_tr_spkr2.lst"
+train_mixsnr_list = "/data3/src/TASNET/list/dc_tr_mixsnr.lst"
+dev_spkr1_list = "/data3/src/TASNET/list/dc_cv_spkr1.lst"
+dev_spkr2_list = "/data3/src/TASNET/list/dc_cv_spkr2.lst"
+dev_mixsnr_list = "/data3/src/TASNET/list/dc_cv_mixsnr.lst"
 
 # job config
 job_type = "train"
 job_dir = "job/TASNET_trial"
-gpu_list = [0]
+gpu_list = [1]
 
 # model config
 num_basis = 500
@@ -40,7 +37,7 @@ bidirectional = True
 
 # training param
 seed = 123
-resume = True
+resume = False
 init_mean = 0.0
 init_stddev = 0.02
 max_grad_norm = 200
@@ -56,9 +53,9 @@ decay_lr = 0.5
 min_learning_rate = 1e-6
 
 # test config
-test_spkr1_list = '/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_tt_spkr1.lst'
-test_spkr2_list = '/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_tt_spkr2.lst'
-test_mixsnr_list = '/home/fsl/workspace/SpeechSeparation/TASNET/list/wsj0_tt_mixsnr.lst'
+test_spkr1_list = '/data3/src/TASNET/list/dc_tt_spkr1.lst'
+test_spkr2_list = '/data3/src/TASNET/list/dc_tt_spkr2.lst'
+test_mixsnr_list = '/data3/src/TASNET/list/dc_tt_mixsnr.lst'
 test_name = 'wsj-test'
 
 # load option

@@ -13,7 +13,6 @@ except ImportError:
     from queue import Queue
 from utils.tools import *
 
-
 class Producer(threading.Thread):
     def __init__(self, reader):
         threading.Thread.__init__(self)
@@ -135,8 +134,8 @@ class SpeechReader(object):
         seq_len = samples_to_segment_len(min_len, frame_size, shift)
         if seq_len < self.min_sent_len:
             return []
-        # mix_sig, s1_sig, s2_sig = self.mix2signal(s1_sig, s2_sig, mix_snr)
-        mix_sig = s1_sig + s2_sig  # wsj0 corpus has been pre-processed for mixing
+        mix_sig, s1_sig, s2_sig = self.mix2signal(s1_sig, s2_sig, mix_snr)
+        # mix_sig = s1_sig + s2_sig  # wsj0 corpus has been pre-processed for mixing
         seg_mix = segment_signal(mix_sig, frame_size, shift)
         seg_s1 = segment_signal(s1_sig, frame_size, shift)
         seg_s2 = segment_signal(s2_sig, frame_size, shift)
